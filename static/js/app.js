@@ -35,7 +35,7 @@ function buildTable(data) {
 }
 
 // 1. Create a variable to keep track of all the filters as an object.
-const filters = {};
+//const filters = {};
 
 // 3. Use this function to update the filters. 
 function updateFilters(evt) {
@@ -43,6 +43,7 @@ function updateFilters(evt) {
   // If the 'Enter' key was pressed
   if(evt.keyCode === 13){
 
+    const filters = {};
       // 4a. Save the element that was changed as a variable.
       const inputs = [];
       // Array of Objects
@@ -84,7 +85,6 @@ function updateFilters(evt) {
   
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    console.log('entries.length = '+Object.values(entries));
 
     let dataset = data.filter(item => {
       const list = Object.keys(entries);
@@ -94,8 +94,7 @@ function updateFilters(evt) {
         return ((entries[k] == '') || (entries[k] == item[k]))
       });
     });
-    console.log('size of dataset is '+dataset.length);
-    console.log('size of data is '+ data.length);
+
   
     // 10. Finally, rebuild the table using the filtered data
     buildTable(dataset);
